@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="-206" y="45"/>
         </scene>
-        <!--View Controller-->
+        <!--Sound Board View Controller-->
         <scene sceneID="Fmm-hM-tq2">
             <objects>
-                <viewController id="RIv-0c-4W1" sceneMemberID="viewController">
+                <viewController id="RIv-0c-4W1" customClass="SoundBoardViewController" customModule="Sound_Board" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SH9-ni-iBT"/>
                         <viewControllerLayoutGuide type="bottom" id="c60-wD-bPd"/>
@@ -77,19 +77,28 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-mQ-i8d">
                                         <state key="normal" title="Record"/>
+                                        <connections>
+                                            <action selector="recordTapped:" destination="RIv-0c-4W1" eventType="touchUpInside" id="RDh-04-G5o"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNE-KK-1Fe">
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playTapped:" destination="RIv-0c-4W1" eventType="touchUpInside" id="hh8-ry-fln"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGF-kP-DFs">
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="RIv-0c-4W1" eventType="touchUpInside" id="btl-bd-hAA"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sound Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d38-TI-1dG">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,10 +115,14 @@
                             <constraint firstItem="d38-TI-1dG" firstAttribute="leading" secondItem="xPK-4l-11q" secondAttribute="leadingMargin" constant="72" id="wfs-w7-YY6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="d38-TI-1dG" id="EsP-9F-66F"/>
+                        <outlet property="recordButton" destination="jlp-mQ-i8d" id="WMU-NQ-t3E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVC-Cr-5rO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="47"/>
+            <point key="canvasLocation" x="663" y="45"/>
         </scene>
     </scenes>
 </document>
