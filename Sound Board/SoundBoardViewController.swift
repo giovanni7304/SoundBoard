@@ -40,6 +40,10 @@ class SoundBoardViewController: UIViewController, UITextFieldDelegate {
             let basePath : String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             let pathComponents = [basePath, "audio.m4a"]
             let audioURL = NSURL.fileURL(withPathComponents: pathComponents)!
+            print("###############")
+            print(audioURL)
+            print("###############")
+            
         // Create settings for the audio recorder
             var settings : [String:Any] = [:]
             settings[AVFormatIDKey] = Int(kAudioFormatMPEG4AAC)
@@ -63,6 +67,18 @@ class SoundBoardViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func recordTapped(_ sender: AnyObject) {
+        
+        if audioRecorder!.isRecording {
+            // Stop the recording
+            audioRecorder?.stop()
+            // change button title to record
+            recordButton.setTitle("Record", for: .normal)
+        } else {
+            // start the recording
+            audioRecorder?.record()
+            // change the button title to stop
+            recordButton.setTitle("Stop", for: .normal)
+        }
     }
     
     @IBAction func playTapped(_ sender: AnyObject) {
